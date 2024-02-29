@@ -1,6 +1,5 @@
 import { Suspense, lazy, useState } from "react";
 import "./App.css";
-import { Events } from "./components/Events";
 import { Route, Routes } from "react-router-dom";
 import Profile from "./pages/Profile";
 import { Contact } from "./pages/Contact";
@@ -8,6 +7,7 @@ import { NavigationBar } from "./pages/NavigationBar";
 // import Sidebar from './pages/Sidebar';
 // import Dashboard from "./pages/Dashboard";
 const Dashboard = lazy(() => import("./pages/Dashboard"));
+import Events from "./components/Events";
 
 function App() {
     return (
@@ -18,7 +18,7 @@ function App() {
                     <Route path="/" element={<Dashboard />} />
                     <Route path="/profile/:username" element={<Profile />} />
                     <Route path="/events">
-                        <Route index element={<Contact />} />
+                        <Route index element={<Events />} />
                         <Route path=":username" element={<Profile />} />
                     </Route>
                     <Route path="*" element={<h1>Not Found</h1>} />
